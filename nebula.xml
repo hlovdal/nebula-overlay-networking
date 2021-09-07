@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <description>Nebula is a scalable overlay networking tool with a focus on performance, simplicity and security</description>
+  <short>nebula</short>
+  <port port="4242" protocol="udp"/>
+</service>

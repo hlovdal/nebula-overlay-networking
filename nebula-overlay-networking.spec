@@ -9,8 +9,10 @@ Source0:        https://github.com/slackhq/nebula/releases/download/v%{version}/
 Source1:        https://github.com/slackhq/nebula/raw/v%{version}/examples/config.yml
 Source2:        https://github.com/slackhq/nebula/raw/v%{version}/LICENSE
 Source3:        https://github.com/slackhq/nebula/raw/v%{version}/examples/service_scripts/nebula.service
+Source4:	nebula.xml
 
 BuildRequires:  systemd-rpm-macros
+Requires:       firewalld
 
 %description
 Nebula is a scalable overlay networking tool with a focus on performance,
@@ -30,6 +32,7 @@ tar zxvf %{SOURCE0}
 cp %{SOURCE1} .
 cp %{SOURCE2} .
 cp %{SOURCE3} .
+cp %{SOURCE4} .
 
 %build
 sed -i s@/usr/local/bin/nebula@%{_bindir}/nebula@ nebula.service
@@ -42,14 +45,28 @@ mkdir -p ${RPM_BUILD_ROOT}/%{_sysconfdir}/nebula
 cp -a config.yml ${RPM_BUILD_ROOT}/%{_sysconfdir}/nebula/.
 mkdir -p ${RPM_BUILD_ROOT}/%{_unitdir}
 cp -a nebula.service ${RPM_BUILD_ROOT}/%{_unitdir}/.
+mkdir -p ${RPM_BUILD_ROOT}/%{_sysconfdir}/firewalld/services
+cp -a nebula.xml ${RPM_BUILD_ROOT}/%{_sysconfdir}/firewalld/services/.
 
 # https://docs.fedoraproject.org/en-US/packaging-guidelines/Scriptlets/#_syntax
 %post
 %systemd_post nebula.service
+if [ $1 == 1 ]
+then
+	# First time install
+	firewall-cmd --permanent --zone=public --add-service=nebula
+	firewall-cmd --reload --quiet
+fi
 exit 0
 
 %preun
 %systemd_preun nebula.service
+if [ $1 == 0 ]
+then
+	# Complete uninstall
+	firewall-cmd --permanent --zone=public --remove-service=nebula
+	firewall-cmd --reload --quiet
+fi
 exit 0
 
 %postun
@@ -62,6 +79,7 @@ exit 0
 %{_bindir}/*
 %{_unitdir}/*
 %config(noreplace) %{_sysconfdir}/nebula/*
+%config(noreplace) %{_sysconfdir}/firewalld/services/*
 %license LICENSE
 
 %changelog
