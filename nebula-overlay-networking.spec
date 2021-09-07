@@ -1,6 +1,6 @@
 Name:           nebula-overlay-networking
 Version:        1.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A scalable overlay networking tool
 
 License:        MIT
@@ -83,5 +83,9 @@ exit 0
 %license LICENSE
 
 %changelog
+* Tue Sep 07 2021 Håkon Løvdal <kode@denkule.no> - 1.4.0-2
+- Add service restart support.
+- Add firewall support.
+
 * Mon Sep 06 2021 Håkon Løvdal <kode@denkule.no> - 1.4.0-1
 - Initial version
