@@ -10,6 +10,8 @@ Source1:        https://github.com/slackhq/nebula/raw/v%{version}/examples/confi
 Source2:        https://github.com/slackhq/nebula/raw/v%{version}/LICENSE
 Source3:        https://github.com/slackhq/nebula/raw/v%{version}/examples/service_scripts/nebula.service
 
+BuildRequires:  systemd-rpm-macros
+
 %description
 Nebula is a scalable overlay networking tool with a focus on performance,
 simplicity and security. It lets you seamlessly connect computers anywhere
@@ -40,6 +42,19 @@ mkdir -p ${RPM_BUILD_ROOT}/%{_sysconfdir}/nebula
 cp -a config.yml ${RPM_BUILD_ROOT}/%{_sysconfdir}/nebula/.
 mkdir -p ${RPM_BUILD_ROOT}/%{_unitdir}
 cp -a nebula.service ${RPM_BUILD_ROOT}/%{_unitdir}/.
+
+# https://docs.fedoraproject.org/en-US/packaging-guidelines/Scriptlets/#_syntax
+%post
+%systemd_post nebula.service
+exit 0
+
+%preun
+%systemd_preun nebula.service
+exit 0
+
+%postun
+%systemd_postun_with_restart nebula.service
+exit 0
 
 
 %files
