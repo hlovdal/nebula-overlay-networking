@@ -11,7 +11,11 @@ Source2:        https://github.com/slackhq/nebula/raw/v%{version}/LICENSE
 Source3:        https://github.com/slackhq/nebula/raw/v%{version}/examples/service_scripts/nebula.service
 Source4:	nebula.xml
 
+%if 0%{?rhel} < 8
+BuildRequires:  systemd
+%else
 BuildRequires:  systemd-rpm-macros
+%endif
 Requires:       firewalld
 
 %description
