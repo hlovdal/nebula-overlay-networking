@@ -1,0 +1,11 @@
+.*.swp
+
+SOURCES/nebula-linux-amd64.tar.gz
+SOURCES/config.yml
+SOURCES/LICENSE
+SOURCES/nebula.service
+
+SRPMS/*
+!SRPMS/.gitkeep
+
+.rpmmacros
