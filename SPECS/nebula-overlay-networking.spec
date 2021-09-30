@@ -1,6 +1,6 @@
 Name:           nebula-overlay-networking
 Version:        1.4.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A scalable overlay networking tool
 
 License:        MIT
@@ -10,6 +10,7 @@ Source1:        https://github.com/slackhq/nebula/raw/v%{version}/examples/confi
 Source2:        https://github.com/slackhq/nebula/raw/v%{version}/LICENSE
 Source3:        https://github.com/slackhq/nebula/raw/v%{version}/examples/service_scripts/nebula.service
 Source4:        nebula.xml
+Source5:        https://github.com/slackhq/nebula/raw/v%{version}//README.md
 
 %if 0%{?rhel} < 8
 BuildRequires:  systemd
@@ -37,12 +38,12 @@ cp %{SOURCE1} .
 cp %{SOURCE2} .
 cp %{SOURCE3} .
 cp %{SOURCE4} .
+cp %{SOURCE5} .
 
 %build
 sed -i s@/usr/local/bin/nebula@%{_bindir}/nebula@ nebula.service
 
 %install
-rm -rf $RPM_BUILD_ROOT
 mkdir -p ${RPM_BUILD_ROOT}/%{_bindir}
 cp -a nebula nebula-cert ${RPM_BUILD_ROOT}/%{_bindir}/.
 mkdir -p ${RPM_BUILD_ROOT}/%{_sysconfdir}/nebula
@@ -82,11 +83,16 @@ exit 0
 %defattr(-,root,root,-)
 %{_bindir}/*
 %{_unitdir}/*
+%{_sysconfdir}/nebula
 %config(noreplace) %{_sysconfdir}/nebula/*
 %config(noreplace) %{_sysconfdir}/firewalld/services/*
 %license LICENSE
+%doc README.md
 
 %changelog
+* Fri Oct 01 2021  Håkon Løvdal <kode@denkule.no> - 1.4.0-3
+- Fix a couple of fedora-review issues.
+
 * Tue Sep 07 2021 Håkon Løvdal <kode@denkule.no> - 1.4.0-2
 - Add service restart support.
 - Add firewall support.
