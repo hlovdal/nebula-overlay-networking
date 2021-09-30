@@ -19,3 +19,14 @@ or [Wireguard](https://www.wireguard.com/).
 There exist multiple other projects that are also named "nebula", so choosing
 "nebula-overlay-networking" to avoid naming collisions as well as being a bit
 more descriptive than just "nebula".
+
+## Rpm package
+
+For now I lazily download and use the precompiled upstream release binaries.
+Long term I should compile the go source files properly.
+
+The package installs the binaries obviously. In addition it contains
+- a `nebula` firewalld service definition (UDP 4242) that is permanently added
+to the `public` zone on package install and removed on package removal.
+- a systemd service file. The service is not started or enabled on package
+install (it does not make sense to do that before configuration is done).
