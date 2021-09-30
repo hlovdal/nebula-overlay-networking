@@ -1,10 +1,14 @@
 # Summary
 
 [Nebula](https://github.com/slackhq/nebula) is a networking overlay tool
-made by Slack. This repo is creating a rpm package of it.
+made by Slack. This repo is creating
+[rpm packages](https://copr.fedorainfracloud.org/coprs/hlovdal/nebula-overlay-networking/)
+of it.
 
 This repository is primarily created for my own personal use, but if it is
 useful for others, good on them.
+
+[![Copr build status](https://copr.fedorainfracloud.org/coprs/hlovdal/nebula-overlay-networking/package/nebula-overlay-networking/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/hlovdal/nebula-overlay-networking/package/nebula-overlay-networking/)
 
 # Details
 
