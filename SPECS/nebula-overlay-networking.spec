@@ -9,7 +9,7 @@ Source0:        https://github.com/slackhq/nebula/releases/download/v%{version}/
 Source1:        https://github.com/slackhq/nebula/raw/v%{version}/examples/config.yml
 Source2:        https://github.com/slackhq/nebula/raw/v%{version}/LICENSE
 Source3:        https://github.com/slackhq/nebula/raw/v%{version}/examples/service_scripts/nebula.service
-Source4:	nebula.xml
+Source4:        nebula.xml
 
 %if 0%{?rhel} < 8
 BuildRequires:  systemd
