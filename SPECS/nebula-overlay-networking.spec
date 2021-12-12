@@ -90,7 +90,7 @@ exit 0
 %doc README.md
 
 %changelog
-* Fri Oct 01 2021  Håkon Løvdal <kode@denkule.no> - 1.4.0-3
+* Fri Oct 01 2021 Håkon Løvdal <kode@denkule.no> - 1.4.0-3
 - Fix a couple of fedora-review issues.
 
 * Tue Sep 07 2021 Håkon Løvdal <kode@denkule.no> - 1.4.0-2
