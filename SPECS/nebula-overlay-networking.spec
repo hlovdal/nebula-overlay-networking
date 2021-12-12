@@ -1,6 +1,6 @@
 Name:           nebula-overlay-networking
-Version:        1.4.0
-Release:        3%{?dist}
+Version:        1.5.0
+Release:        1%{?dist}
 Summary:        A scalable overlay networking tool
 
 License:        MIT
@@ -90,6 +90,9 @@ exit 0
 %doc README.md
 
 %changelog
+* Sun Dec 12 2021 Håkon Løvdal <kode@denkule.no> - 1.5.0-1
+- Update to version 1.5.0.
+
 * Fri Oct 01 2021 Håkon Løvdal <kode@denkule.no> - 1.4.0-3
 - Fix a couple of fedora-review issues.
 
