@@ -59,6 +59,7 @@ cp -a nebula.xml ${RPM_BUILD_ROOT}/%{_sysconfdir}/firewalld/services/.
 if [ $1 == 1 ]
 then
 	# First time install
+	firewall-cmd --reload --quiet  # Required for firewall-cmd to pick up the added service file.
 	firewall-cmd --permanent --zone=public --add-service=nebula
 	firewall-cmd --reload --quiet
 fi
@@ -90,6 +91,9 @@ exit 0
 %doc README.md
 
 %changelog
+* Fri May 27 2022 Håkon Løvdal <kode@denkule.no> - 1.5.2-2
+- Fix bug in post install script that caused adding the firewall service to fail.
+
 * Wed Dec 15 2021 Håkon Løvdal <kode@denkule.no> - 1.5.2-1
 - Update to version 1.5.2.
 
