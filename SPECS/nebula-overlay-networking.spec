@@ -1,6 +1,6 @@
 Name:           nebula-overlay-networking
 Version:        1.5.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A scalable overlay networking tool
 
 License:        MIT
