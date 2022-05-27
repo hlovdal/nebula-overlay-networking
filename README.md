@@ -33,3 +33,21 @@ The package installs the binaries obviously. In addition it contains
 to the `public` zone on package install and removed on package removal.
 - a systemd service file. The service is not started or enabled on package
 install (it does not make sense to do that before configuration is done).
+
+### Installation example
+
+```bash
+dnf install nebula-overlay-networking
+cd /etc/nebula
+${EDITOR:-nano} config.yml
+
+git add config.yml                 # Of course you are using etckeeper, right?
+git ci -m "Configured nebula"
+
+systemctl start nebula
+systemctl status nebula
+systemctl enable nebula
+
+git add /etc/systemd/system/multi-user.target.wants/nebula.service
+git ci -m "Enabled nebula service" -m "systemctl enable nebula"
+```
