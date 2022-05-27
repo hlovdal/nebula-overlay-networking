@@ -26,6 +26,7 @@ For now I lazily download and use the precompiled upstream release binaries.
 Long term I should compile the go source files properly.
 
 The package installs the binaries obviously. In addition it contains
+
 - a `nebula` firewalld service definition (UDP 4242) that is permanently added
 to the `public` zone on package install and removed on package removal.
 - a systemd service file. The service is not started or enabled on package
