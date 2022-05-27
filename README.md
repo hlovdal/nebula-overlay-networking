@@ -23,7 +23,9 @@ more descriptive than just "nebula".
 ## Rpm package
 
 For now I lazily download and use the precompiled upstream release binaries.
-Long term I should compile the go source files properly.
+Long term I should maybe compile the go source files properly, however as a
+benefit it is now trivially simple to verify that the binaries I provide in
+this package are 100% exactly the same as the upstream project releases.
 
 The package installs the binaries obviously. In addition it contains
 
