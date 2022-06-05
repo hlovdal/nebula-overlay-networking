@@ -1,0 +1,5 @@
+*	text eol=lf
+
+*.sh	diff=bash
+*.md	diff=markdown
+
