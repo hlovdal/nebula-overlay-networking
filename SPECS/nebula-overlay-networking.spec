@@ -1,6 +1,6 @@
 Name:           nebula-overlay-networking
-Version:        1.5.2
-Release:        2%{?dist}
+Version:        1.6.0
+Release:        1%{?dist}
 Summary:        A scalable overlay networking tool
 
 License:        MIT
@@ -91,6 +91,9 @@ exit 0
 %doc README.md
 
 %changelog
+* Sun Aug 14 2022 Håkon Løvdal <kode@denkule.no> - 1.6.0-1
+- Update to version 1.6.0.
+
 * Fri May 27 2022 Håkon Løvdal <kode@denkule.no> - 1.5.2-2
 - Fix bug in post install script that caused adding the firewall service to fail.
 
