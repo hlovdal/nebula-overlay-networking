@@ -42,12 +42,12 @@ cd /etc/nebula
 ${EDITOR:-nano} config.yml
 
 git add config.yml                 # Of course you are using etckeeper, right?
-git ci -m "Configured nebula"
+git commit -m "Configured nebula"
 
 systemctl start nebula
 systemctl status nebula
 systemctl enable nebula
 
 git add /etc/systemd/system/multi-user.target.wants/nebula.service
-git ci -m "Enabled nebula service" -m "systemctl enable nebula"
+git commit -m "Enabled nebula service" -m "systemctl enable nebula"
 ```
