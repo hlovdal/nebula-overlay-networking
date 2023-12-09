@@ -41,8 +41,8 @@ dnf install nebula-overlay-networking
 cd /etc/nebula
 ${EDITOR:-nano} config.yml
 
-git add config.yml                 # Of course you are using etckeeper, right?
-git commit -m "Configured nebula"
+git add config.yml                   # Of course you are using etckeeper, right?
+git commit -m "Configured nebula"    # https://etckeeper.branchable.com/
 
 systemctl start nebula
 systemctl status nebula
