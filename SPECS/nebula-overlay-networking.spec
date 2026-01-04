@@ -91,7 +91,8 @@ exit 0
 %doc README.md
 
 %changelog
-* Sun  4 Jan 2026 Håkon Løvdal <kode@denkule.no> - 1.9.6-1
+# LC_ALL=C date +'%a %b %d %Y'
+* Sun Jan 04 2026 Håkon Løvdal <kode@denkule.no> - 1.9.6-1
 - Update to version 1.9.6.
 
 * Sat Dec  7 2024 Håkon Løvdal <kode@denkule.no> - 1.9.5-1
