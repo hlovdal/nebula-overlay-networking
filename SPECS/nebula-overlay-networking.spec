@@ -1,5 +1,5 @@
 Name:           nebula-overlay-networking
-Version:        1.9.5
+Version:        1.9.6
 Release:        1%{?dist}
 Summary:        A scalable overlay networking tool
 
@@ -91,6 +91,9 @@ exit 0
 %doc README.md
 
 %changelog
+* Sun  4 Jan 2026 Håkon Løvdal <kode@denkule.no> - 1.9.6-1
+- Update to version 1.9.6.
+
 * Sat Dec  7 2024 Håkon Løvdal <kode@denkule.no> - 1.9.5-1
 - Update to version 1.9.5.
 
