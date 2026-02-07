@@ -1,5 +1,5 @@
 Name:           nebula-overlay-networking
-Version:        1.10.2
+Version:        1.10.3
 Release:        1%{?dist}
 Summary:        A scalable overlay networking tool
 
@@ -92,6 +92,9 @@ exit 0
 
 %changelog
 # LC_ALL=C date +'* %a %b %d %Y Håkon Løvdal <kode@denkule.no> - 1.10.x-1'
+* Sat Feb 07 2026 Håkon Løvdal <kode@denkule.no> - 1.10.3-1
+- Update to version 1.10.3.
+
 * Thu Jan 22 2026 Håkon Løvdal <kode@denkule.no> - 1.10.2-1
 - Update to version 1.10.2.
 
